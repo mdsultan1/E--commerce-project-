@@ -1,9 +1,40 @@
 
-
+import {Navbar } from "./components/Navbar"
+import {Products} from "./components/Products"
+import {Home} from "./pages/Home"
+import{Login} from "./pages/Login"
+import {Register} from "./pages/Register"
+import {Product} from "./pages/Product"
+import {Cart} from "./pages/Cart"
+import {Routes,Route,Navigate} from "react-router-dom"
+import { Profile } from "./pages/Profile"
+import {Shipping} from"./pages/Shipping"
+import {UserListScreen} from "./pages/UserListScreen"
 function App() {
   return (
-    <div className="App">
-      Welcome to my shop
+    <div>
+
+<Routes>
+
+      <Route path = "/" element = {<Home></Home>}>
+      </Route>
+      <Route path = "/login" element = {<Login></Login>}>
+      </Route>
+      <Route path = "/register" element = {<Register></Register>}>
+      </Route>
+      <Route path = "/product/:id" element = {<Product></Product>}>
+      </Route>
+      <Route path = "/cart" element = {<Cart></Cart>}>
+        <Route path = "/cart/:id" element = {<Cart></Cart>} />
+      </Route>
+      <Route path = "/profile" element = {<Profile></Profile>}></Route>
+      <Route path = "/shipping" element = {<Shipping></Shipping>}></Route>
+      <Route path = "/userlist" element = {<UserListScreen></UserListScreen>}></Route>
+
+
+</Routes>
+
+
     </div>
   );
 }
