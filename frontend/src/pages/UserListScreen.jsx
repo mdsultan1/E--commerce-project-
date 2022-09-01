@@ -16,6 +16,8 @@ export const UserListScreen = () => {
     const userList = useSelector(state => state.userList)
     const {loading,error,users} = userList
 
+  
+
     useEffect(()=>{
         dispatch(listUsers())
     },[dispatch])
@@ -23,11 +25,35 @@ export const UserListScreen = () => {
 
   return (
     <div>
-        <h1>User</h1>
+
+    <Navbar></Navbar>
+  
+    <div className= "order-wrapper" style = {{padding:"40px"}} >
+    <h1>USER LIST</h1>
+    <div className='order'>
+    <div className = "row">
+      <label style = {{flexGrow: "2"}}>ID</label>
+      <label>NAME</label>
+      <label>EMAIL</label>
+
+
+    </div>
+
+    { users ? (users.map((user)=>( 
+        <div className='column' >
+
+        <span  style = {{flexGrow: "2"}}>{user._id}</span>
+        <span>{user.name}</span>
+        <span>{user.email}</span>
+
+        </div>)
+
+    )): null}
 
 
 
-
+    </div>
+    </div>
     </div>
   )
 }

@@ -48,6 +48,17 @@ export const Navbar = () => {
                          Login
                    </Link>
                  </div>}
+                 {userInfo &&userInfo.isAdmin && (
+                
+                   <div className ="dropdown">
+                   <button className ="dropbtn">Admin</button>
+                   <div className ="dropdown-content">
+                     <a href="/admin/productlist">Products</a>
+                     <a href="/admin/orderlist" >Orders</a>
+                     <a href="/admin/userlist">Users</a>
+            
+                   </div>
+                 </div>)}
                  
                     <div className = "items">
                       <Link to = "/cart">

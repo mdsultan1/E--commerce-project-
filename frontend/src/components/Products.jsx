@@ -30,9 +30,9 @@ export const Products = () => {
 
     <div className = "products-container">
         
-        {products.length > 0? products.map((items)=>(
+        { products.map((items)=>(
             <Product items = {items} key = {items._id} />
-        )): null}
+        ))}
 
         </div>}
         </div>

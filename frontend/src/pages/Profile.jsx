@@ -3,11 +3,10 @@ import { useState } from 'react'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {Navbar} from "../components/Navbar"
-import {Loader} from "../components/loader"
 import Message from "../components/message"
 import { getUserDetails,updateUserProfile } from '../actions/userActions'
 import { listMyOrders } from '../actions/orderAction'
-import { Navigate, useNavigate} from 'react-router-dom'
+import {  useNavigate} from 'react-router-dom'
 
 
 export const Profile = () => {
@@ -52,7 +51,7 @@ export const Profile = () => {
 
             }
         }
-      },[userInfo,dispatch,user,orders])
+      },[userInfo,dispatch,user,orders,loadingOrders])
         const submitHandler = (e) =>{
            e.preventDefault()
     

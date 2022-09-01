@@ -10,6 +10,8 @@ import {Routes,Route,Navigate} from "react-router-dom"
 import { Profile } from "./pages/Profile"
 import {Shipping} from"./pages/Shipping"
 import {UserListScreen} from "./pages/UserListScreen"
+import {AdminProduct} from "./pages/AdminProduct"
+import { EditScreen } from "./pages/EditScreen"
 function App() {
   return (
     <div>
@@ -29,7 +31,10 @@ function App() {
       </Route>
       <Route path = "/profile" element = {<Profile></Profile>}></Route>
       <Route path = "/shipping" element = {<Shipping></Shipping>}></Route>
-      <Route path = "/userlist" element = {<UserListScreen></UserListScreen>}></Route>
+      <Route path = "/admin/userlist" element = {<UserListScreen></UserListScreen>}></Route>
+
+      <Route path = "/admin/productlist" element = {<AdminProduct></AdminProduct>}></Route>
+      <Route path = "/admin/product/:id/edit" element = {<EditScreen></EditScreen>}></Route>
 
 
 </Routes>
