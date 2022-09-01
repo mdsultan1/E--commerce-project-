@@ -24,7 +24,8 @@ export const Cart = () => {
   const dispatch = useDispatch()
   const cart = useSelector(state=> state.cart)
   const{cartItems} = cart
- 
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
   useEffect(()=>{
 
     if(id){
@@ -41,13 +42,13 @@ export const Cart = () => {
   <div><Navbar></Navbar>
     <div className = "cart-container" style = {{height: "100vh"}}>
          <h1>Shopping Cart</h1>
+         {userInfo ? <h1> Please login to continue shopping </h1>: null}
           <div className = "cart-info" style = {{border: "1px solid black"}}>
-          
           <h1 style = {{fontSize: "30px"}}>TOTAL ( {cartItems.reduce((acc, item) => acc + item.qty, 0)} ) ITEMS :  $  {cartItems
                 .reduce((acc, item) => acc + item.qty * item.price, 0)
                 .toFixed(2)}</h1>
                 <Link to = "/shipping"  > 
-          <button className = "check-btn" disabled = {cartItems.length ===0}>CHECKOUT NOW</button>
+          <button className = "check-btn" disabled = {cartItems.length ===0 && !userInfo}>CHECKOUT NOW</button>
           </Link>
           </div>
           

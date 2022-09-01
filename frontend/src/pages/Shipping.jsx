@@ -17,7 +17,8 @@ export const Shipping = () => {
     const dispatch = useDispatch()
 
     const navigate = useNavigate()
-
+    const userLogin = useSelector((state) => state.userLogin)
+    const { userInfo } = userLogin
 
     const[address,setAddress] = useState(shippingAddress.address)
   const[city, setCity] = useState(shippingAddress.city)
@@ -33,16 +34,23 @@ export const Shipping = () => {
       e.preventDefault()
       console.log("submit ")
       dispatch(saveShippingAddress({address,city,postalCode,country}))
-      dispatch(createOrder({
-        orderItems: cart.cartItems,
-        shippingAddress: cart.shippingAddress,
-        totalPrice: Number(total)
+     
 
-      }))
-      alert("Order is Processed Successfully")
+      if(userInfo){
+        dispatch(createOrder({
+          orderItems: cart.cartItems,
+          shippingAddress: cart.shippingAddress,
+          totalPrice: Number(total)
+  
+        }))
+        alert("Order is Processed Successfully")
+  
+        navigate("/profile")
 
-      navigate("/profile")
-
+      }else{
+        alert("You have to login in to make an order")
+        navigate("/login")
+      }   
   }
   return (
 

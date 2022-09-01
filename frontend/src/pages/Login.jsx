@@ -12,7 +12,6 @@ export const Login = () => {
   const navigate = useNavigate()
 
   const location = useLocation()
-  const prev = location.state.prevLocation
   
   const[email,setEmail] = useState("")
   const[password, setPassword] = useState("")
@@ -24,7 +23,7 @@ export const Login = () => {
   useEffect(()=>{
 
     if(userInfo){
-      navigate(prev)
+      navigate("/")
 
     }
   },[userInfo])
