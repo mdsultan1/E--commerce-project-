@@ -9,20 +9,16 @@ import Message from "./message";
 import { Loader } from "./loader";
 
 export const Products = () => {
-
-  
   const dispatch = useDispatch()
   const productList = useSelector(state => state.productList)
   const {loading,error, products} = productList
 
   useEffect(()=>{
 
-
    dispatch(listProducts())
 
   }, [dispatch])
 
-  
   return (<div>
       <h1 style = {{backgroundColor: "aliceblue", textAlign: "center", padding: "40px 0 20px"}}>Featured Products </h1>
 
@@ -33,7 +29,6 @@ export const Products = () => {
         { products.map((items)=>(
             <Product items = {items} key = {items._id} />
         ))}
-
         </div>}
         </div>
   )
